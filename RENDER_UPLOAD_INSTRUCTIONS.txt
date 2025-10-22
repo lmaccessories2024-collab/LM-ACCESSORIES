@@ -1,0 +1,24 @@
+LM ACCESSORIES - Render Deploy Instructions
+==========================================
+
+1) Go to your Render dashboard and click 'New +' -> 'Static Site' or 'Web Service'.
+   - Choose 'Web Service' (since we have a Node backend).
+   - Select 'Upload a .zip' option when asked for repo/source.
+2) Upload the file 'LM_ACCESSORIES_Render_Ready.zip' provided to you.
+3) For the service settings, you can accept defaults. Important fields:
+   - Environment: Node
+   - Build command: (not needed because postinstall builds frontend) or use: cd frontend && npm install && npm run build
+   - Start command: node backend/index.js
+   - Port: Leave default; the app listens on process.env.PORT automatically.
+4) After creation, Render will install dependencies, build the frontend, and start the backend.
+   Wait 1-2 minutes; your site will be available at a *.onrender.com URL like: https://lm-accessories.onrender.com
+
+Environment variables:
+- If you want to enable Stripe test payments, add STRIPE_SECRET in Environment settings on Render:
+    STRIPE_SECRET=sk_test_...
+
+Admin credentials (demo):
+- Username: LMACCESSORIES
+- Password: Lney563901
+
+If you want, send me the Render service URL after deployment and I will verify everything and test adding a product remotely.
